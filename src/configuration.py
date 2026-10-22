@@ -1,0 +1,45 @@
+"""Translate the manuscript configuration into executable trainer arguments."""
+
+import json
+from pathlib import Path
+
+
+MODEL_KEYS = ("c_s", "c_z", "n_layers", "n_heads", "condition_dim", "dropout",
+              "n_topo_heads", "khop", "slow_feat_dim", "sigma_min", "cyclic_peptide",
+              "equivariant_translations", "topology_graph_scope")
+TRAIN_KEYS = ("batch_size", "lr", "weight_decay", "warmup_ratio", "grad_clip",
+              "cfg_dropout", "ema_decay", "patience", "basin_boost",
+              "translation_scale_mode")
+
+
+def training_defaults(path):
+    config = json.loads(Path(path).read_text(encoding="utf-8"))
+    if config.get("protocol") != "manuscript_20261019":
+        raise ValueError("Use a manuscript_20261019 configuration")
+    if config.get("system") != "IL-23R–JNJ-2113":
+        raise ValueError("This training profile supports IL-23R–JNJ-2113 only")
+    defaults = {key: config["model"][key] for key in MODEL_KEYS}
+    defaults.update({key: config["training"][key] for key in TRAIN_KEYS})
+    defaults.update(config["training"]["loss_weights"])
+    defaults["epochs"] = config["training"].get("maximum_epochs")
+    defaults["seed"] = config["training"].get("seed")
+    defaults["manuscript_protocol"] = config["protocol"]
+    defaults["finetune_extra_epochs"] = 0
+    defaults["reset_scheduler"] = False
+    return defaults
+
+
+def validate_manuscript_arguments(args):
+    if not getattr(args, "manuscript_protocol", None):
+        return
+    if args.epochs is None or args.epochs < 1 or args.seed is None:
+        raise ValueError("Supply --epochs and --seed for this training run")
+    if args.resume or args.finetune_extra_epochs:
+        raise ValueError("The manuscript retraining entry point starts from scratch; omit --resume and fine-tuning options")
+    if not args.val_data or not args.split_manifest:
+        raise ValueError("Manuscript training requires --val_data and --split_manifest")
+    if not args.slow_feat_path or not args.slow_feat_val_path or not args.train_basin_labels:
+        raise ValueError("Supply prepared train/validation TICA conditions and training basin labels")
+    if sum(bool(getattr(args, flag)) for flag in (
+            "disable_tica_conditioning", "disable_topology_bias", "disable_interface_attention")) > 1:
+        raise ValueError("The reported component ablations remove one component at a time")
