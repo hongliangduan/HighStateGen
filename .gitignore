@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+wandb/
+runs/
+inputs/
+prepared/
+weights/
+samples/
+samples.pdb*

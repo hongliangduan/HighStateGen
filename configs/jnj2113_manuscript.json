@@ -1,0 +1,112 @@
+{
+  "protocol": "jnj2113_45000_v1",
+  "system": "IL-23R–JNJ-2113",
+  "coordinates": "fixed, independently fitted TICA (TIC1/TIC2)",
+  "model": {
+    "c_s": 256,
+    "c_z": 64,
+    "n_layers": 6,
+    "n_heads": 8,
+    "condition_dim": 128,
+    "dropout": 0.2,
+    "n_topo_heads": 2,
+    "khop": 3,
+    "slow_feat_dim": 2,
+    "sigma_min": 0.0001,
+    "cyclic_peptide": true,
+    "equivariant_translations": false,
+    "topology_graph_scope": "complex"
+  },
+  "data": {
+    "replicas": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "frames_per_replica": 12500,
+    "development_replicas": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "excluded_replica": null,
+    "validation_tail_per_development_replica": 1250,
+    "train_frames": 45000,
+    "validation_frames": 5000,
+    "excluded_frames": 0,
+    "tica_fit_frames": 50000,
+    "tica_lag_frames": 5,
+    "cross_replica_lagged_pairs": false,
+    "condition_normalization": "training frames only"
+  },
+  "training": {
+    "initialization": "random initialization or an explicitly supplied compatible checkpoint",
+    "batch_size": 64,
+    "lr": 0.00005,
+    "weight_decay": 0.05,
+    "warmup_ratio": 0.05,
+    "grad_clip": 1,
+    "cfg_dropout": 0.15,
+    "ema_decay": 0.9999,
+    "patience": 30,
+    "checkpoint_selection": "lowest validation loss, evaluated with EMA weights",
+    "translation_scale_mode": "coordinate_rms",
+    "basin_boost": [
+      1,
+      3.5,
+      1.5,
+      1,
+      2.5
+    ],
+    "loss_weights": {
+      "lambda_rot": 1,
+      "lambda_peptide": 5,
+      "lambda_fape": 5,
+      "lambda_aux_coord": 1.5,
+      "lambda_dist_global": 0.3,
+      "lambda_topo": 0.1,
+      "lambda_interface_dist": 0.3,
+      "lambda_cross_dist": 0.5,
+      "lambda_disulfide": 1,
+      "lambda_torsion": 1,
+      "lambda_pair_frame": 1,
+      "lambda_lddt": 1
+    },
+    "loss_reduction": "per_sample_then_time_weight_then_batch_mean"
+  },
+  "sampling": {
+    "integrator": "Heun",
+    "num_steps": 150,
+    "cfg_scale": 3,
+    "cfg_warmup_ratio": 0.2,
+    "tica_gradient_guidance_weight": 0,
+    "geometry_guidance": {
+      "topo_weight_protein": 1,
+      "topo_weight_peptide": 1,
+      "topo_rot_weight": 0.5,
+      "ca_ca_weight": 10,
+      "disulfide_weight": 0,
+      "disulfide_rot_weight": 0,
+      "disulfide_sg_weight": 0,
+      "disulfide_sg_angle_weight": 0,
+      "disulfide_sg_dihedral_weight": 0,
+      "disulfide_sg_rot_weight": 0
+    },
+    "n_samples": 100
+  },
+  "refinement": {
+    "method": "donor graft followed by restrained OpenMM minimization",
+    "restraint_expression": "0.5*k*distance_squared",
+    "ca_restraints_kcal_mol_A2": [
+      10,
+      2
+    ],
+    "maximum_iterations_per_stage": 1000,
+    "force_tolerance_kJ_mol_nm": 10,
+    "implicit_solvent": "OBC2",
+    "nonbonded_method": "NoCutoff",
+    "constraints": "HBonds"
+  }
+}

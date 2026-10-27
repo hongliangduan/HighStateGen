@@ -1,0 +1,15 @@
+# Dependencies for this source package.
+torch==2.7.1
+numpy>=2.0,<3
+mdtraj==1.11.1.post1
+parmed==4.3.1
+tqdm>=4.67,<5
+wandb==0.25.1
+joblib>=1.4,<2
+scipy>=1.14,<2
+matplotlib>=3.9,<4
+openmm>=8.2,<9
+
+# Install a PyTorch CPU/CUDA build appropriate to the machine.
+# ParmEd's optional accelerated parser may require a C++ compiler on Windows.
+# scikit-learn is optional for the legacy PCA path; manuscript TICA uses NumPy.

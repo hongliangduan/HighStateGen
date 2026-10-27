@@ -1,0 +1,29 @@
+{
+  "source": "Original graft script _find_atom_index_fuzzy applied to packaged prmtop",
+  "original_specs": [
+    "B:296:SG",
+    "B:301:SG"
+  ],
+  "resolved_atoms": [
+    {
+      "atom_index_0based": 4754,
+      "amber_atom_1based": 4755,
+      "atom_name": "SG",
+      "residue_index_0based": 295,
+      "amber_residue_1based": 296,
+      "mdtraj_resSeq": 295,
+      "residue_name": "PEN"
+    },
+    {
+      "atom_index_0based": 4851,
+      "amber_atom_1based": 4852,
+      "atom_name": "SG",
+      "residue_index_0based": 300,
+      "amber_residue_1based": 301,
+      "mdtraj_resSeq": 300,
+      "residue_name": "PEN"
+    }
+  ],
+  "bonded_in_prmtop": true,
+  "chain_warning": "AMBER topology has one chain; original function falls back without chain ID."
+}

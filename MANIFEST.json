@@ -1,0 +1,162 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 118,
+    "sha256": "13c9bcefd796537d93cb9c72a258ae46439203b75e7d7becb9b1ebca5c275267"
+  },
+  {
+    "path": "analysis/conformation_space.py",
+    "bytes": 45884,
+    "sha256": "7f55e3397deeab8ead2214c562a9e0e53badadb2d33990d5fe3bbec0519d6b18"
+  },
+  {
+    "path": "analysis/prepare_training_data.py",
+    "bytes": 5689,
+    "sha256": "84e6d3d4904847e9c6550d1340c5d5f2101fd16cb2386fbbb9b354977f1854a0"
+  },
+  {
+    "path": "analysis/reference_metrics.py",
+    "bytes": 4268,
+    "sha256": "619632e60a6453d360f1955bb7c8bf2ed48fbdbd8bd2a6163f26298143f6597b"
+  },
+  {
+    "path": "analysis/tica_core.py",
+    "bytes": 2973,
+    "sha256": "f17d65d4073e0b67f6acc7eca1c3bbeb67df37c32e1a568f297c31afd0b7abae"
+  },
+  {
+    "path": "configs/jnj2113_manuscript.json",
+    "bytes": 2941,
+    "sha256": "3e6fe8ccf4153febc92a383d01140786c058f105941a5a96f6b72ab330103cc4"
+  },
+  {
+    "path": "docs/WORKFLOW.md",
+    "bytes": 5560,
+    "sha256": "8dfa8279e5004000495d6d2f0041afbbc1b0d04c8fcb54762f1940a2a3faa5d5"
+  },
+  {
+    "path": "examples/jnj2113/closure_atom_mapping.json",
+    "bytes": 761,
+    "sha256": "e03a57e131d2fa5f865c4d3eeec4ec7d8683eb3cbfd04bbbf8fc33d7e58bcbd1"
+  },
+  {
+    "path": "examples/jnj2113/complex_dry.pdb",
+    "bytes": 334675,
+    "sha256": "2687e266d695c2b0f04e3e5a0c892699e921d19c77e1ba9fe0e7a0899882db43"
+  },
+  {
+    "path": "examples/jnj2113/complex_dry.prmtop",
+    "bytes": 2200496,
+    "sha256": "f92e2684cc56adb4eb37fd408d3d52a062b240cf6d30c38da20a4856b611f349"
+  },
+  {
+    "path": "graft_and_minimize.py",
+    "bytes": 24642,
+    "sha256": "111965763acef7871ccbb2dc4b0787ee98b6b2e32b71b197cb05e2593485a85d"
+  },
+  {
+    "path": "README.md",
+    "bytes": 2976,
+    "sha256": "e7a3b0d46e1aba4f564f050ff2fe76dc4dd4329879769c0df6a7d7e3c0a2df8f"
+  },
+  {
+    "path": "requirements.txt",
+    "bytes": 431,
+    "sha256": "5f539b64dea47c8979b459d6fda880f4bd6d39e906d9ce0a648f6d614446822d"
+  },
+  {
+    "path": "src/checkpoint_protocol.py",
+    "bytes": 2606,
+    "sha256": "047909abe7bea99526aede1a27f809c280f92ab409ed22bcc03844aacbbec4b2"
+  },
+  {
+    "path": "src/configuration.py",
+    "bytes": 3945,
+    "sha256": "872b872777dee2fde1ef44710cc775f4fe36b198bce09f40367260b2a07e7d0a"
+  },
+  {
+    "path": "src/data_protocol.py",
+    "bytes": 7372,
+    "sha256": "8e124c8907180bae87260a9100041d46925ef804fe3b65950209c5fae09207c4"
+  },
+  {
+    "path": "src/frame_dataset_dual.py",
+    "bytes": 12769,
+    "sha256": "c2c635f412bf20be15d6aeefac8787b8d1aaa13ab8c9298266b026c0abb14580"
+  },
+  {
+    "path": "src/frame_flow_matching.py",
+    "bytes": 4110,
+    "sha256": "a24d3853c1e3449ac04a0903d3826e111542a9ab3b2038ab912502fdcaa6ba67"
+  },
+  {
+    "path": "src/frame_utils.py",
+    "bytes": 14928,
+    "sha256": "ff3d16afa97fbd9546753825b5abeb8182909c9a040e572c1ef3aa9fd616675d"
+  },
+  {
+    "path": "src/inference_context.py",
+    "bytes": 7271,
+    "sha256": "ad58bc981e11ff86721835a9c2a36ca5f4596e7f1217a8b05530002632823e1d"
+  },
+  {
+    "path": "src/ipa_model_dual.py",
+    "bytes": 34618,
+    "sha256": "4f8c80b17aac9445251c463f7143901fe31cf42b3610cf0a68693a992e28f766"
+  },
+  {
+    "path": "src/lddt_loss.py",
+    "bytes": 2124,
+    "sha256": "d3202f4820eb3f070fb77064679a118291baa1de217b685c001d57cc3dc9d70b"
+  },
+  {
+    "path": "src/physics_constraints.py",
+    "bytes": 28909,
+    "sha256": "c7906e733f27657c59de0c3a4f68b8bf0b6366488d7f4a425a501fe6dfbfeb9c"
+  },
+  {
+    "path": "src/physics_losses.py",
+    "bytes": 37278,
+    "sha256": "570b1359742cc87e41009d72a2aa898f119dffa93b026cb4571fb5164448d057"
+  },
+  {
+    "path": "src/sample.py",
+    "bytes": 74613,
+    "sha256": "25ce6d0d7e712cd88ad8a8da04b63dcd6dac851883efe2939e4a5e9d99ac8c3a"
+  },
+  {
+    "path": "src/topo_graph_encoder.py",
+    "bytes": 6031,
+    "sha256": "bd6c2dfeddf6a70c690277f5764691b42a135e7033ab3896d710dac4676c2984"
+  },
+  {
+    "path": "src/train.py",
+    "bytes": 53516,
+    "sha256": "7df0ae1b412c57a36029cc110c8e87510b90e6125445e6f502760c9342c60ec5"
+  },
+  {
+    "path": "tests/test_core.py",
+    "bytes": 9368,
+    "sha256": "12e1899e8a5ae98a245c73a991657d863f7081d15d2ce775b212e2b23f82cebb"
+  },
+  {
+    "path": "tests/test_inference_bundle.py",
+    "bytes": 7612,
+    "sha256": "f1e2174e460f7ae83faa8b8402c42edcfdffa324fe2111304a77fb9cb6d3fbfc"
+  },
+  {
+    "path": "tests/test_training_release.py",
+    "bytes": 8753,
+    "sha256": "7e71a1052423860fd12991058f25c1490feea26b8a99809b6380344db7ad7020"
+  },
+  {
+    "path": "tools/export_inference_bundle.py",
+    "bytes": 8761,
+    "sha256": "684b6142abe175511ed152bfe7d8d4203612aa50b26a54b8863d3b0421c68ded"
+  },
+  {
+    "path": "tools/split_samples.py",
+    "bytes": 2367,
+    "sha256": "35b4b2c68a5fd6d38b1110d492cbd20c7ebabefaf0dd9d8b30c4f0eb18cdfd2c"
+  }
+]
